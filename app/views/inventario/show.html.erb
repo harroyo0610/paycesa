@@ -37,8 +37,8 @@
 					<td scope="col"><%= item.venta %></td>
 					<td scope="col"><%= item.cantidad %></td>
 					<td scope="col"><%= item.bodega %></td>
-					<td scope="col"> Update </td>
-					<td scope="col"> Delete</td>
+					<td scope="col"> <%= link_to "Update", edit_inventario_path(item) %> </td>
+					<td scope="col"> <%= link_to "Delete", inventario_path(item), method: "delete", data: { confirm: "Are you sure?" }  %></td>
 				</tr>
 			<% end %>
 		<% end %>

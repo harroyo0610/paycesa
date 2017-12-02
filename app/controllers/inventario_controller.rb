@@ -1,5 +1,6 @@
 class InventarioController < ApplicationController
   def index
+  	@inventarios = Inventario.all
   end
 
   def new
@@ -17,6 +18,26 @@ class InventarioController < ApplicationController
   		render 'new'
   	end
   end
+  def edit
+    @inventario = Inventario.find(params[:id])
+  end
+
+  def update
+    @inventario = Inventario.find(params[:id])
+    if @inventario.update_attributes(params_inventario)
+      #flash[:success] = "Profile updated"
+      redirect_to inventario_index_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+		Inventario.find(params[:id]).destroy
+		#flash[:success] = "User deleted"
+		redirect_to inventario_index_path
+	end
+
   def show
   	p tipo_inventario = params[:id]
   	@inventarios = Inventario.where(tipo: tipo_inventario)
