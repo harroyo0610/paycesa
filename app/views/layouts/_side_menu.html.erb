@@ -1,0 +1,24 @@
+
+<ul class="nav flex-column col-sm-2 text-center">
+  <%= content_tag(:li, link_to("Dashboard", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Inventario", "", class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Artesanal", inventario_path("artesanal"), class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Industrial", inventario_path("industrial"), class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Movimientos de Inventario", inventario_index_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Clientes", "", class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Alta", root_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Ver Clientes", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Ventas", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Control de Embarques", "", class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Nuevo", root_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Detalle", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Cotizar", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+  <%= content_tag(:li, link_to("Cuentas por Cobrar", root_path, class: "nav-link"), class: "nav-item") %>
+  <hr>
+</ul>
