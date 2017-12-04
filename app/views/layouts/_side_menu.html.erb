@@ -8,16 +8,16 @@
   <%= content_tag(:li, link_to("Movimientos de Inventario", inventario_index_path, class: "nav-link"), class: "nav-item") %>
   <hr>
   <%= content_tag(:li, link_to("Clientes", "", class: "nav-link"), class: "nav-item") %>
-  <%= content_tag(:li, link_to("Alta", root_path, class: "nav-link"), class: "nav-item") %>
-  <%= content_tag(:li, link_to("Ver Clientes", root_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Alta", new_cliente_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Ver Clientes", cliente_index_path, class: "nav-link"), class: "nav-item") %>
   <hr>
   <%= content_tag(:li, link_to("Ventas", root_path, class: "nav-link"), class: "nav-item") %>
   <hr>
   <%= content_tag(:li, link_to("Control de Embarques", "", class: "nav-link"), class: "nav-item") %>
-  <%= content_tag(:li, link_to("Nuevo", root_path, class: "nav-link"), class: "nav-item") %>
-  <%= content_tag(:li, link_to("Detalle", root_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Nuevo", new_embarque_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Detalle", embarque_index_path, class: "nav-link"), class: "nav-item") %>
   <hr>
-  <%= content_tag(:li, link_to("Cotizar", root_path, class: "nav-link"), class: "nav-item") %>
+  <%= content_tag(:li, link_to("Cotizar", new_cotizacion_path(:tc => {:tc => "yes"}), class: "nav-link"), class: "nav-item") %>
   <hr>
   <%= content_tag(:li, link_to("Cuentas por Cobrar", root_path, class: "nav-link"), class: "nav-item") %>
   <hr>

@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202185758) do
+ActiveRecord::Schema.define(version: 20171203235849) do
+
+  create_table "clientes", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "telefono"
+    t.string   "email"
+    t.string   "direccion"
+    t.string   "direccion_entrega"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "cotizacions", force: :cascade do |t|
+    t.string   "tc"
+    t.string   "cliente"
+    t.string   "bodega"
+    t.string   "pago"
+    t.integer  "cantidad"
+    t.float    "descuento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "embarques", force: :cascade do |t|
+    t.string   "numero_guia"
+    t.string   "transportista"
+    t.datetime "fecha_salida"
+    t.string   "numero_orden"
+    t.string   "destino"
+    t.string   "cliente"
+    t.string   "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "inventarios", force: :cascade do |t|
     t.string   "upc"
@@ -23,6 +56,17 @@ ActiveRecord::Schema.define(version: 20171202185758) do
     t.integer  "cantidad"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "productos", force: :cascade do |t|
+    t.string   "tc"
+    t.string   "upc"
+    t.string   "nombre"
+    t.integer  "cantidad"
+    t.float    "precio"
+    t.string   "bodega"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

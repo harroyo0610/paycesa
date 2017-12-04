@@ -1,0 +1,40 @@
+<div id="die">
+  <%= f.fields_for :producto, :html => {:class => ''} do |h| %>
+    <%= h.label "Buscar producto" %><br> 
+    <%= h.text_field "producto", class: "form-control", id: 'producton'%><br>
+    <%= h.submit "Buscar", class: "btn btn-primary formulario" %><br>
+  <% end %>
+  <br>
+  <% p @tc_tc %>
+  <% p productos = Producto.where(tc: @tc_tc) %>
+  <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th scope="col">UPC</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Bodega</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if productos.empty? %>
+
+        <% else %>
+          <% productos.each do|item|%>
+            <tr>
+              <td scope="col"><%= item.upc %></td>
+              <td scope="col"><%= item.nombre %></td>
+              <td scope="col"><%= item.cantidad %></td>
+              <td scope="col"><%= item.precio %></td>
+              <td scope="col"><%= item.bodega %></td>
+              <td scope="col">Delete</td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+  
+ 

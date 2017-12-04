@@ -18,3 +18,10 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap
+$(document).ready(function() {
+  $("#cotiza").on("click", function(event) {
+    $.get("cotizacion/new", {producto:"Holaaaaaaaaaaaaaaa"},function(data) {
+        alert("jfkrhfrkhf");
+    });
+   });
+});

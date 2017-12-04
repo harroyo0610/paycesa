@@ -1,0 +1,2 @@
+class Embarque < ApplicationRecord
+end
