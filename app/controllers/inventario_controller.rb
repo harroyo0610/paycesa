@@ -7,11 +7,10 @@ class InventarioController < ApplicationController
   	@inventario = Inventario.new
   end
   def create
-  	p params_inventario
   	@inventario = Inventario.new(params_inventario)
 
   	if @inventario.save
-  		#flash[:success] = "Welcome to my app"
+  		flash[:success] = "Welcome to my app"
       #log_in(@)
   		redirect_to inventario_index_path
   	else
@@ -39,8 +38,13 @@ class InventarioController < ApplicationController
 	end
 
   def show
-  	p tipo_inventario = params[:id]
+  	tipo_inventario = params[:id]
   	@inventarios = Inventario.where(tipo: tipo_inventario)
+    respond_to do |format|
+      format.html
+      format.csv{ send_data  @inventarios.to_csv  }
+      format.xls{ send_data  @inventarios.to_csv(col_sep: "\t") }
+    end
   end
 
   private 

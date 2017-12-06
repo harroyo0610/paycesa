@@ -1,0 +1,25 @@
+<table border="1">
+	<tr>
+		<td>upc</td>
+		<td>tipo</td>
+		<td>bodega</td>
+		<td>modelo</td>
+		<td>descripcion</td>
+		<td>compra</td>
+		<td>venta</td>
+		<td>cantidad</td>
+	</tr>
+
+	<% @inventarios.each do |inventario| %>
+		<tr>
+		<td>inventario.upc</td>
+		<td>inventario.tipo</td>
+		<td>inventario.bodega</td>
+		<td>inventario.modelo</td>
+		<td>inventario.descripcion</td>
+		<td>inventario.compra</td>
+		<td>inventario.venta</td>
+		<td>inventario.cantidad</td>
+		</tr>
+	<% end %>
+</table>

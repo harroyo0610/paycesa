@@ -11,20 +11,6 @@ class CotizacionController < ApplicationController
   	@clientes = Cliente.all
   	@cotizacion = Cotizacion.last
   	render 'edit'
-  	#producto = params[:producto]
-  	#tc = params[:tc]
-  	#@inventarios = []
-  	#p "p" * 50
-  	#if producto && Producto.find_by(tc: tc, upc: producto) != nil
-  	#	p "*-"*100
-  	#	inventario = Inventario.find_by(upc: producto)
-  	#	producto = Producto.new(tc: tc, upc: producto, nombre: inventario.descripcion, cantidad: inventario.cantidad, precio: inventario.venta, bodega: inventario.bodega)
-  	#	if producto.save
-  	#		redirect_to new_cotizacion_path
-  	#	else
-  	#		render 'new'
-  	#	end
-  	#end
   end
 
   def create
