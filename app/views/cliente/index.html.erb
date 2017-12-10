@@ -1,42 +1,42 @@
-<div class="row">
-	<%= render 'layouts/side_menu' %>
-	<div class="col-sm-10">
-		<h1 class="text-center">Clientes</h1>
-		<br><br>
-		<div class="row col-sm-12">
-			<%=  link_to "Agregar cliente", new_cliente_path%>
-			<table class="table" id="myTable">
-				<input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Buscar.." title="Type in a name">
 
-				<thead>
-					<tr>
-						<th scope="col">ID#</th>
-			      <th scope="col">Nombre</th>
-			      <th scope="col">Teléfono</th>
-			      <th scope="col">Email/th>
-			      <th scope="col">Update</th>
-			      <th scope="col">Delete</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% if @clientes.empty? %>
-						<h3 class="text-center">No hay clientes</h3>
-					<% else %>
-						<% @clientes.each do|item|%>
-							<tr>
-								<td scope="col"><%= item.id %></td>
-								<td scope="col"><%= item.nombre %></td>
-								<td scope="col"><%= item.telefono %></td>
-								<td scope="col"><%= item.email %></td>
-								<td scope="col"> <%= link_to "Update", edit_cliente_path(item) %> </td>
-								<td scope="col"> <%= link_to "Delete", cliente_path(item), method: "delete", data: { confirm: "Are you sure?" }  %></td>
-							</tr>
-						<% end %>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
+<h1 class="text-center">Clientes</h1>
+<br><br>
+<div class="row">
+	<%=  link_to "Agregar cliente", new_cliente_path, class: "btn btn-outline-primary offset-sm-6 col-sm-2 "%>
 	</div>
+<div class="row col-sm-12">
+
+	
+	<table class="table table-striped " style="background-color: #b3e6ff" id="myTable">
+		<input type="text" class="form-control col-sm-4" id="myInput" onkeyup="myFunction()" placeholder="Buscar.." title="Type in a name">
+
+		<thead>
+			<tr>
+				<th scope="col">ID#</th>
+	      <th scope="col">Nombre</th>
+	      <th scope="col">Teléfono</th>
+	      <th scope="col">Email/th>
+	      <th scope="col">Update</th>
+	      <th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if @clientes.empty? %>
+				<h3 class="text-center">No hay clientes</h3>
+			<% else %>
+				<% @clientes.each do|item|%>
+					<tr>
+						<td scope="col"><%= item.id %></td>
+						<td scope="col"><%= item.nombre %></td>
+						<td scope="col"><%= item.telefono %></td>
+						<td scope="col"><%= item.email %></td>
+						<td scope="col"> <%= link_to "Update", edit_cliente_path(item), class: "btn btn-primary" %> </td>
+						<td scope="col"> <%= link_to "Delete", cliente_path(item), method: "delete", data: { confirm: "Are you sure?" } , class: "btn btn-primary" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
 </div>
 
 <script type="text/javascript">

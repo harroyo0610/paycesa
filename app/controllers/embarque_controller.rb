@@ -11,10 +11,12 @@ class EmbarqueController < ApplicationController
   	@embarque = Embarque.new(embarque_params)
 
   	if @embarque.save
+      flash[:success] = "Embarque guardado"
   		#flash[:success] = "Welcome to my app"
       #log_in(@)
   		redirect_to embarque_index_path
   	else
+      flash[:danger] = "Todos los campos deben estar llenos"
   		render 'new'
   	end
   end
@@ -27,16 +29,18 @@ class EmbarqueController < ApplicationController
   def update
     @embarque = Embarque.find(params[:id])
     if @embarque.update_attributes(embarque_params)
+      flash[:success] = "Embarque actualizado"
       #flash[:success] = "Profile updated"
       redirect_to embarque_index_path
     else
+      flash[:danger] = "Todos los campos deben estar llenos"
       render 'edit'
     end
   end
 
   def destroy
 		Embarque.find(params[:id]).destroy
-		#flash[:success] = "User deleted"
+		flash[:success] = "Embarque borrado"
 		redirect_to embarque_index_path
 	end
 

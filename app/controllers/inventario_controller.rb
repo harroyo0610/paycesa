@@ -10,10 +10,11 @@ class InventarioController < ApplicationController
   	@inventario = Inventario.new(params_inventario)
 
   	if @inventario.save
-  		flash[:success] = "Welcome to my app"
+  		flash[:success] = "Articulo guardado"
       #log_in(@)
   		redirect_to inventario_index_path
   	else
+      flash[:danger] = "Todos los campos deben estar llenos"
   		render 'new'
   	end
   end
@@ -24,9 +25,11 @@ class InventarioController < ApplicationController
   def update
     @inventario = Inventario.find(params[:id])
     if @inventario.update_attributes(params_inventario)
+      flash[:success] = "Articulo actualizado"
       #flash[:success] = "Profile updated"
       redirect_to inventario_index_path
     else
+      flash[:danger] = "Todos los campos deben estar llenos"
       render 'edit'
     end
   end
@@ -34,6 +37,7 @@ class InventarioController < ApplicationController
   def destroy
 		Inventario.find(params[:id]).destroy
 		#flash[:success] = "User deleted"
+    flash[:success] = "Articulo borrado correctamente"
 		redirect_to inventario_index_path
 	end
 

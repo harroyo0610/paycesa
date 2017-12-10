@@ -1,5 +1,5 @@
 class Inventario < ApplicationRecord
-
+	validates :upc, :tipo, :bodega, :modelo, :descripcion, :compra, :venta,   presence: true
 	def self.to_csv(options = {})
 			p "self" * 50
 			CSV.generate(options) do |csv|

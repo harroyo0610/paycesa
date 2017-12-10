@@ -11,10 +11,12 @@ class ClienteController < ApplicationController
   	@cliente = Cliente.new(cliente_params)
 
   	if @cliente.save
+      flash[:success] = "Cliente guardado"
   		#flash[:success] = "Welcome to my app"
       #log_in(@)
   		redirect_to cliente_index_path
   	else
+      flash[:danger] = "Todos los campos deben estar llenos"
   		render 'new'
   	end
   end
@@ -26,16 +28,18 @@ class ClienteController < ApplicationController
   def update
     @cliente = Cliente.find(params[:id])
     if @cliente.update_attributes(cliente_params)
+      flash[:success] = "Cliente actualizado"
       #flash[:success] = "Profile updated"
       redirect_to cliente_index_path
     else
+      flash[:danger] = "Todos los campos deben estar llenos"
       render 'edit'
     end
   end
 
   def destroy
 		Cliente.find(params[:id]).destroy
-		#flash[:success] = "User deleted"
+		flash[:success] = "Cliente borrado"
 		redirect_to cliente_index_path
 	end
 

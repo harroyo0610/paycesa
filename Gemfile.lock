@@ -87,7 +87,11 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    pdf-core (0.7.0)
     popper_js (1.12.5)
+    prawn (2.2.2)
+      pdf-core (~> 0.7.0)
+      ttfunk (~> 1.5)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -146,6 +150,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    ttfunk (1.5.1)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -171,6 +176,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  prawn
   rails (>= 5.0.0.rc2, < 5.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

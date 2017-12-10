@@ -2,6 +2,7 @@
 <% if !@clientes.nil? %>
 	<% @clientes.each { |item| clientes << [item.nombre, item.nombre]} %>
 <% end %>
+<div class="offset-sm-1 col-sm-10 form">
 <%= form_for @embarque, url: {action: "create"} do |f|%>
 	<%= f.label "# de Guía" %><br>	
 	<%= f.text_field "numero_guia", type: "text", class: "form-control" %>
@@ -19,3 +20,4 @@
 	<%= f.select("status", [['En proceso', 'proceso'], ['Cancelado', 'cancelado'], ['Embarcado', 'embarcado'], ['Entregado', 'entregado']], {} ,{class: "form-control"}) %><br>
   <%= f.submit "Crear", class: "btn btn-primary" %>
 <% end %>
+</div>
