@@ -93,6 +93,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     number_to_words (1.2.1)
     pdf-core (0.7.0)
+    pg (0.21.0)
     popper_js (1.12.5)
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
@@ -189,6 +190,7 @@ DEPENDENCIES
   jquery-ui-rails
   listen (~> 3.0.5)
   number_to_words
+  pg
   prawn
   puma (~> 3.0)
   rails (>= 5.0.0.rc2, < 5.1)
