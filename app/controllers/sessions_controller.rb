@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
       redirect_to root_path
   	else
   		flash[:danger] = "Invalid email or password"
-  		render 'new'	
+  		redirect_to root_path	
   	end
-  	
+
   end
 
   def destroy
