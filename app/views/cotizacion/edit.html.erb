@@ -7,7 +7,7 @@
 	    <% end %>
 	<%= form_for @cotizacion do |f|%>
 		<%= f.label "# TC" %><br>	
-	  <%= f.text_field "tc", value: @tc_tc, class: "form-control", disabled: true , id: 'tc'%>
+	  <%= f.text_field "tc", value: Cotizacion.last.tc, class: "form-control", disabled: true , id: 'tc'%>
 	  <div id="die">
 	  <%= f.fields_for :producto, :html => {:class => ''} do |h| %>
 	    <%= h.label "Buscar producto" %><br> 
@@ -15,10 +15,8 @@
 	    <%= h.submit "Buscar", class: "btn btn-primary formulario" %><br>
 	  <% end %>
 	  <br>
-	  <% p "tc" * 20%>
-	  <% p tc_tc = Cotizacion.last %>
-	  <% p "tc" * 10 %>
-	  <% p productos = Producto.where(tc: tc_tc.tc) %>
+	  <% tc_tc = Cotizacion.last %>
+	  <% productos = Producto.where(tc: tc_tc.tc) %>
 	  <table class="table" id="myTable">
 	      <thead>
 	        <tr>
@@ -41,7 +39,7 @@
 	              <td scope="col"><%= item.cantidad %></td>
 	              <td scope="col"><%= item.precio %></td>
 	              <td scope="col"><%= item.bodega %></td>
-	              <td scope="col">Delete</td>
+	              <td scope="col"> <%= link_to "Delete", cotizacion_path(item), method: "delete", data: { confirm: "Are you sure?" }, class: "btn btn-primary" %></td>
 	            </tr>
 	          <% end %>
 	        <% end %>
@@ -56,10 +54,10 @@
   <%= f.label "Bodega" %><br>
   <%= f.select("bodega", [['Ramos Millan', 'ramos'], ['Texcoco', 'texcoco'], ['Veloz', 'veloz']], {} ,{class: "form-control"}) %><br>
   <%= f.label "Pago" %><br>
-  <%= f.text_field "pago", type: "text", class: "form-control" %>
+  <%= f.select("pago", [['Contado', 'contado'], ['Crédito', 'credito']], {} ,{class: "form-control"}) %><br>
   <%= f.label "Cantidad" %><br>
   <%= f.text_field "cantidad", type: "text", class: "form-control" %>
   <%= f.label "Descuento" %><br>     
-	<%= f.text_field "descuento", type: "text", class: "form-control" %><br>
-  <%= link_to "Pdf", cotizacion_path(@cotizacion ,format: "pdf"), class: "btn btn-outline-primary offset-sm-1 col-sm-1" %>
+	<%= f.text_field "descuento", class: "form-control" %><br>
+  <%= link_to "Pdf", cotizacion_path(@cotizacion ,format: "pdf"),  target: '_blank', class: "btn btn-outline-primary offset-sm-1 col-sm-1" %>
 <% end %>

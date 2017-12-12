@@ -2,6 +2,11 @@ class ClienteController < ApplicationController
 
   def index
   	@clientes = Cliente.all
+    respond_to do |format|
+      format.html
+      format.csv{ send_data  @clientes.to_csv  }
+      format.xls{ send_data  @clientes.to_csv(col_sep: "\t") }
+    end
   end
 
   def new
@@ -35,6 +40,10 @@ class ClienteController < ApplicationController
       flash[:danger] = "Todos los campos deben estar llenos"
       render 'edit'
     end
+  end
+
+  def show
+    
   end
 
   def destroy

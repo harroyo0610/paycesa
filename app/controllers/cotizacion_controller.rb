@@ -51,12 +51,12 @@ class CotizacionController < ApplicationController
 	  		product =  params.require(:cotizacion).require(:producto).permit(:producto)
 	  	elsif producto == ""
 	  		@cotizacion = Cotizacion.last
+
 		    if @cotizacion.update_attributes(cotizacion_params)
           respond_to do |format|
             format.html
             format.pdf do
-              pdf = Prawn::Document.new
-              pdf.text "Hello tito"
+              pdf = Prawn::Document.new(@cotizacion)
               send_data pdf.render, filename: "cotizacion_#{@cotizacion.tc}.pdf", type: "application/pdf", disposition: "inline"
             end
           end
@@ -68,6 +68,11 @@ class CotizacionController < ApplicationController
 	  	else
 	  		redirect_to new_cotizacion_path
 	  	end    
+  end
+
+  def destroy
+    Producto.find(params[:id]).destroy
+    redirect_to new_cotizacion_path
   end
 
   private

@@ -26,3 +26,29 @@ ul.nav{
 	margin: 60px;
 	background-color: white;
 }
+
+.centrar-div{
+    width: 100%;
+
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    float: none;
+}
+
+
+/* mixins, variables, etc. */
+/*
+$gray-medium-light: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/*Universal*/
+
