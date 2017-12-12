@@ -38,7 +38,6 @@ gem "jquery-ui-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 gem 'pg'
 group :development, :test do
   gem 'spring'
