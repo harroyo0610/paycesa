@@ -30,6 +30,7 @@ gem 'jquery-rails'
 gem 'bcrypt'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'puma'
 gem "jquery-ui-rails"
 
 # Use Capistrano for deployment
@@ -51,8 +52,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor', '0.0.2'
-  gem 'puma'
+ 
 end
 
 
