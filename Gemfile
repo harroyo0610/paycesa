@@ -38,9 +38,6 @@ gem "jquery-ui-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do 
-  gem 'sqlite3'
-end
 
 gem 'pg'
 group :development, :test do
